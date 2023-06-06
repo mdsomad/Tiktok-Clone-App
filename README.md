@@ -1,16 +1,27 @@
-# tiktok_clone
+# Tiktok Clone App
 
 A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Tiktok Clone App Login Screen Ui Preview
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<table>
+  
+  
+<tr>                    
+   <th>Login Screen Ui View</th>
+</tr>  
+  
+  
+  
+<tr>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<td>
+  <img src="" alt="Login Screen View Example" width="260"/>
+</td>
+ 
+  
+</tr>
+
+</table>
