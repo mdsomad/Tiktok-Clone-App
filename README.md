@@ -31,14 +31,19 @@ firebase_storage: ^11.2.2 -->
 <tr>
 
 <td>
-  <img src="" alt="Home View Example" width="260"/>
+  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/cab14013-7f9b-464d-9983-f52a8a10708b" alt="Home View Example" width="260"/>
 </td>
 
 <td>
-  <img src="" alt="Search View Example" width="260"/>
+  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/e2e960b6-c187-4222-a841-6b1a89d7daa5" alt="Search View Example" width="260"/>
 </td>
  
   
 </tr>
 
+
 </table>
+
+
+
+
