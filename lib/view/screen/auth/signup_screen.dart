@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tiktok_clone/controller/auth_controller.dart';
 import 'package:tiktok_clone/view/widgets/glitch.dart';
 import '../../widgets/text_input.dart';
 
@@ -9,6 +11,7 @@ import '../../widgets/text_input.dart';
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
   TextEditingController _emailController = new TextEditingController();
+  TextEditingController _usernameController = new TextEditingController();
   TextEditingController _setPasswordController = new TextEditingController();
   TextEditingController _confirmPasswordController = new TextEditingController();
 
@@ -39,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
       
                 InkWell(
                   onTap: (){
-                    // AuthController.instance.pickImage();
+                    AuthController.instance.pickImage();
                     debugPrint("CircleAvatar Clicked");
                   },
                   child: Stack( 
@@ -108,7 +111,7 @@ class SignUpScreen extends StatelessWidget {
              Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: TextInputField(
-                  controller: _emailController,
+                  controller: _usernameController,
                   myLabelText: "Username",
                   myIcon: Icons.person,
                 ),
@@ -118,6 +121,9 @@ class SignUpScreen extends StatelessWidget {
               
               ElevatedButton(
                   onPressed: () {
+
+                    AuthController.instance.SignUp(_usernameController.text.trim().toString(), _emailController.text.trim().toString(), _setPasswordController.text.trim().toString(), AuthController.instance.proimg);
+                     
                     debugPrint("SignUp Button Clicked");
                   },
                   child: Container(
