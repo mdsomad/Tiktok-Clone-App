@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-
-
+import 'package:tiktok_clone/constants.dart';
+import 'package:tiktok_clone/view/widgets/customAddIcon.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,19 +11,40 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-  
+int pageIdx = 0;
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Home Page"),
-        ),
-    );
 
+      body: Center(
+        child: pageindex[pageIdx],
+      ),
+
+      
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: backgroundColor,
+        onTap: (index) {
+          setState(() {
+            pageIdx = index;
+          });
+        },
+        currentIndex: pageIdx,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home, size: 25), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search, size: 25), label: 'Search'),
+          BottomNavigationBarItem(icon: customAddIcon(), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message, size: 25), label: 'Messages'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person, size: 25), label: 'Profile'),
+        ],
+      ),
+    );
   }
 }
