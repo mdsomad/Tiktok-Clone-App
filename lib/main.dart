@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Tiktok Clone',
       theme:  ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor
       ),
