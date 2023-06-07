@@ -70,10 +70,10 @@ class _AddCaption_ScreenState extends State<AddCaption_Screen> {
         child: Column(
           children: [
 
-            SizedBox(                                                 // <-- This video display code
+            SizedBox(                                                 //* <-- This video display & Play code
                 width:MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 1.4 ,
-                child:  VideoPlayer(videoPlayerController ),
+                child: VideoPlayer(videoPlayerController ),
               ),
       
       
