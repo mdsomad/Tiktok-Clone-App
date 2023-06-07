@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tiktok_clone/controller/auth_controller.dart';
 import 'package:tiktok_clone/view/widgets/glitch.dart';
 import '../../widgets/text_input.dart';
 
@@ -67,6 +68,8 @@ class LoginScreen extends StatelessWidget {
 
             ElevatedButton(
                 onPressed: () {
+                  //* Login Function Call
+                  AuthController.instance.login(_emailController.text.trim().toString(), _passwordController.text.trim().toString());
                   debugPrint("Login Button Clicked");
                 },
                 child: Container(

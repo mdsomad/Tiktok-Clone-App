@@ -6,18 +6,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiktok_clone/model/user.dart';
+import 'package:tiktok_clone/view/screen/auth/login_Screen.dart';
+import 'package:tiktok_clone/view/screen/home_screen.dart';
 
 
 
 
 class AuthController extends GetxController {
-
-  static AuthController instance = Get.find(); 
-
-   File? proimg;
   
 
-  pickImage()async{
+//* Bina object is class ka functions kisi bhi class mein access Kiya Ja sakta hai Iske through
+static AuthController instance = Get.find(); 
+
+
+
+
+File? proimg;
+  
+
+
+//TODO: Create pickImage Function
+pickImage()async{
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
 
     if(image == null) return;
@@ -31,8 +40,44 @@ class AuthController extends GetxController {
 
   
 
-  //* User Register
 
+//* User State Persistence
+
+late Rx<User?> _user;
+User get user => _user.value!;
+
+  //* Example
+  //* _user  - Nadi
+  //* _user.bindStream - Nadi Me Color Deko
+  //* ever - Aap Ho
+
+@override
+  void onReady() {              //* onReady <-- Yah initState Jaisa Hi Kaam karta hai
+    // TODO: implement onReady
+    super.onReady();
+   _user = Rx<User?>(FirebaseAuth.instance.currentUser);
+   _user.bindStream(FirebaseAuth.instance.authStateChanges());  
+    ever(_user, _setInitialView);  //* <-- Call this _setInitialView function
+   //* Rx - Observable Keyword - Continously Checking Variable Is Changing Or Not.
+  }
+
+
+
+//TODO: Create _setInitialView Function
+_setInitialView(User? user){
+    if(user == null){
+      Get.offAll(()=> LoginScreen());
+    }else{
+      Get.offAll(() => HomeScreen());
+    }
+  }
+
+
+
+
+
+  //* User Register
+  //TODO Create SignUp Function
   void SignUp(String username, String email, String password, File? image) async {
 
     try {
@@ -50,7 +95,7 @@ class AuthController extends GetxController {
         ); 
               //* User Data Upload Firebase Database
         await FirebaseFirestore.instance.collection('users').doc(credential.user!.uid).set(userModel.toJson());
-        
+        Get.snackbar("Create", "Successfully");
       }else{
          Get.snackbar("Error Crating Account","Please Enter all the required fields");
       }
@@ -79,6 +124,30 @@ Future<String> _uploadProPic(File image) async {
     TaskSnapshot snapshot = await uploadTask;
     String imageDownloadURL = await snapshot.ref.getDownloadURL();
     return imageDownloadURL;
+  }
+
+
+
+
+
+ //TODO Create Login Function
+void login(String email, String password)async{
+      
+      try {
+        if(email.isNotEmpty && password.isNotEmpty){
+          await FirebaseAuth.instance.signInWithEmailAndPassword(email:email, password:password).then((value) {
+          Get.snackbar("Login", "Successfully");
+        });
+        }else{
+          Get.snackbar("Error Logging In", "please enter the all fields");
+       }
+      } catch (e) {
+        Get.snackbar('Error logging In', e.toString());
+      }
+    
+    
+     
+  
   }
 
 
