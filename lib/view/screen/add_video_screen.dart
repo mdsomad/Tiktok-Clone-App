@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiktok_clone/constants.dart';
+import 'package:tiktok_clone/view/screen/addcaption_screen.dart';
 
 
 
@@ -17,10 +18,12 @@ class AddVideoScreen extends StatelessWidget {
 
 
  //TODO: Create videoPick Function
-  videoPick(ImageSource src) async {
+  videoPick(ImageSource src ,BuildContext context) async {
     final video = await ImagePicker().pickVideo(source: src);     
     if (video != null) {
       Get.snackbar("Video Selected", video.path);
+      Navigator.push(context,MaterialPageRoute(builder: ((context) => AddCaption_Screen(videoFile:File(video.path,),videoPath:video.path  ,))));      // <-- push addCaption_Screen or send data  
+      
     } else {
       Get.snackbar(
           "Error In Selecting Video", "Please Choose A Different Video File");
@@ -46,7 +49,7 @@ class AddVideoScreen extends StatelessWidget {
 
 
                     ListTile(
-                      onTap: () => videoPick(ImageSource.camera),   //* <-- This videoPick function Call
+                      onTap: () => videoPick(ImageSource.camera,context),   //* <-- This videoPick function Call
 
                       leading: const Icon(
                         Icons.camera,
@@ -57,7 +60,7 @@ class AddVideoScreen extends StatelessWidget {
 
 
                     ListTile(
-                      onTap: () => videoPick(ImageSource .gallery),   //* <-- This videoPick Function Call
+                      onTap: () => videoPick(ImageSource .gallery,context),   //* <-- This videoPick Function Call
                       title: const Text('Gallery'),
                       leading: const Icon(
                         Icons.photo,
