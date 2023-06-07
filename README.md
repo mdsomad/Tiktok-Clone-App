@@ -3,7 +3,19 @@
 A new Flutter project.
 
 
-## Tiktok Clone App SignUp Screen Ui Preview
+## Add This Packages 
+firebase_core: ^2.13.1
+get: ^4.6.5
+firebase_auth: ^4.6.2
+cloud_firestore: ^4.8.0
+firebase_storage: ^11.2.2
+
+
+
+## AuthController setup
+
+
+<!-- ## Tiktok Clone App SignUp Screen Ui Preview
 
 
 <table>
@@ -24,4 +36,4 @@ A new Flutter project.
   
 </tr>
 
-</table>
+</table> -->
