@@ -15,14 +15,14 @@ firebase_storage: ^11.2.2 -->
 <!-- ##  Creating User Complete Firebase -->
 
 
-## Tiktok Clone App Video Preview Ui Preview
+## Tiktok Clone App Video Preview & AddCaption_Screen Ui Preview
 
 
 <table>
   
   
 <tr>                    
-   <th>Video Preview & AddCaption_Screen Ui View</th>
+   <th>Video Preview & Play Ui View</th>
    <!-- <th>Video Pick Ui View</th>
    <th>Show Phone Gallery Ui View</th>
    <th>Video Selected Ui View</th> -->
@@ -33,7 +33,7 @@ firebase_storage: ^11.2.2 -->
 <tr>
 
 <td>
-  <img src="" alt="Video Preview Screen Ui View Example" width="260"/>
+  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/162347c0-44f4-4a42-9bae-6a923cd73195" alt="Video Preview Screen Ui View Example" width="260"/>
 </td>
 
 <!-- <td>
@@ -53,8 +53,4 @@ firebase_storage: ^11.2.2 -->
 
 
 </table>
-
-
-
-
 
