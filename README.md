@@ -3,14 +3,14 @@
 A new Flutter project.
 
 
-## Tiktok Clone App Login Screen Ui Preview
+## Tiktok Clone App SignUp Screen Ui Preview
 
 
 <table>
   
   
 <tr>                    
-   <th>Login Screen Ui View</th>
+   <th>SignUp Screen Ui View</th>
 </tr>  
   
   
@@ -18,7 +18,7 @@ A new Flutter project.
 <tr>
 
 <td>
-  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/49d9dd8c-7e90-4803-a69c-d253cdd3a7b8" alt="Login Screen View Example" width="260"/>
+  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/0568fbbb-4621-4f56-bc55-a75a98a423e3" alt="SignUp Screen View Example" width="260"/>
 </td>
  
   
