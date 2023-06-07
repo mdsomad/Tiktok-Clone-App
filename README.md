@@ -12,7 +12,7 @@ firebase_storage: ^11.2.2
 
 
 
-## AuthController setup
+## AuthController setup aur signUp Methods create
 
 
 <!-- ## Tiktok Clone App SignUp Screen Ui Preview
