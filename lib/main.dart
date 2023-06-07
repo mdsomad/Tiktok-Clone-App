@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants.dart';
 import 'package:tiktok_clone/firebase_options.dart';
 import 'package:tiktok_clone/view/screen/auth/login_Screen.dart';
+import 'package:tiktok_clone/view/screen/auth/signup_screen.dart';
 
 
 
@@ -21,11 +22,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme:  ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor
       ),
-      home:LoginScreen(),
+      home:SignUpScreen(),
     );
   }
 }
