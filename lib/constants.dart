@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:tiktok_clone/view/screen/add_video_screen.dart';
 
 // getRandomColor() => Colors.primaries[Random().nextInt(Colors.primaries.length)];
+
+
 
 getRandomColor() => [
   Colors.blueAccent,
@@ -21,8 +23,8 @@ const borderColor = Colors.grey;
 var pageindex = [
   Text('Home'),
   Text('Search'),
-//  addVideoScreen(),
- Text('Upload Video'),
+  AddVideoScreen(),
+//  Text('Upload Video'),
   Text('Messages'),
   Text('Profile')
 ];
