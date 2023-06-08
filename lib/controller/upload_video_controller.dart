@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -61,7 +62,9 @@ Future<File> _getThumb(String videoPath) async{
 uploadVideo({required String songName, required String caption, required String videoPath})async{
 
     try {
-        
+
+        log('Video Uploading Started');
+
        //* Yah Login User ka uid find karta hai
        String uid = FirebaseAuth.instance.currentUser!.uid;
       
@@ -77,24 +80,25 @@ uploadVideo({required String songName, required String caption, required String 
 
 
 
-    VideoModel videoModel = VideoModel(
+    VideoModel videoModel = VideoModel(     //* <-- This Video Model call 
+        username: (userDoc.data()! as Map<String,dynamic>)['name'] , 
         uid: uid, 
-        videoModelUrl: videoUrl,
-        username: (userDoc.data()! as Map<String , dynamic>)['name'], 
-        profilePic: (userDoc.data()! as Map<String , dynamic>)['profilePic'],
-        thumbnail: thumbnail,
-        caption: caption,
         id: id, 
-        likes:[],
-        shareCount: 0, 
+        like: [],
         commentsCount: 0,
+        shareCount: 0, 
         songName: songName, 
-    );
+        caption: caption,
+        videoUrl: videoUrl,
+        thumbnail: thumbnail, 
+        profilePic:(userDoc.data()! as Map<String,dynamic>)['profilePic']
+        ); 
       
 
-    await FirebaseFirestore.instance.collection("videos").doc(id).set(videoModel.toJson());
-    Get.snackbar("Video Uploaded Successfully", "Thank You Sharing Your Content");
-    debugPrint('Video Uploaded Successfully');
+      await FirebaseFirestore.instance.collection("videos").doc(id).set(videoModel.toJson()).then((value){
+      Get.snackbar("Video Uploaded Successfully", "Thank You Sharing Your Content");
+      log('Video Uploaded Successfully');
+    });
     Get.back();
       
       
@@ -102,7 +106,7 @@ uploadVideo({required String songName, required String caption, required String 
       
       
     } catch (e) {
-      debugPrint(e.toString());
+        log(e.toString());
        Get.snackbar("Error Uploading Video", e.toString());
     }
     
