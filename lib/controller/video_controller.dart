@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+import 'package:tiktok_clone/controller/auth_controller.dart';
 import 'package:tiktok_clone/model/video_model.dart';
 
 
@@ -28,21 +29,55 @@ class VideoController extends GetxController{
 
 
 
-// likedVideo(String id)async{
+
+ likedVideo(String id) async{
+     log('likedVideo Called');
+    DocumentSnapshot doc = await FirebaseFirestore.instance.collection("videos").doc(id).get();
+    var uid = AuthController.instance.user.uid;
+    if((doc.data() as dynamic)['like'].contains(uid)){
+      await FirebaseFirestore.instance.collection("videos").doc(id).update({
+        'like' : FieldValue.arrayRemove([uid]),
+      });
+       log("Video Likeed");
+    }else{
+      await FirebaseFirestore.instance.collection("videos").doc(id).update(
+          {
+            'like' : FieldValue.arrayUnion([uid]),
+          });
+    }
+
+     log("Video DisLike");
+  }
 
 
+
+
+
+
+
+
+// likedVideo(String id) async{
+//   log('likedVideo Called');
 //   DocumentSnapshot doc = await FirebaseFirestore.instance.collection('videos').doc(id).get();
 //   var uid = AuthController.instance.user.uid;
+
 //   if((doc.data() as dynamic)['likes'].constants(uid)){
+    
 //     await FirebaseFirestore.instance.collection('videos').doc(id).update({
-//       'likes':FieldValue.arrayRemove([uid]),
+//       'likes' : FieldValue.arrayRemove([uid]),
 //     });
+//     log("Video Likeed");
 //   }else{
+   
 //     await FirebaseFirestore.instance.collection('videos').doc(id).update(
 //       {
-//         'likes':FieldValue.arrayUnion([uid])
+//         'likes' : FieldValue.arrayUnion([uid]),
 //       }
 //     );
+
+//     log("Video DisLike");
+    
+    
 //   }
 // }
 

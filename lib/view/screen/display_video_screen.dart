@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiktok_clone/controller/video_controller.dart';
@@ -76,7 +78,8 @@ class _DisplayVideo_ScreenState extends State<DisplayVideo_Screen> {
 
                             InkWell(
                               onTap: (){
-                                // videoController.likedVideo(data.id);
+                                 log(data.id);
+                                videoController.likedVideo(data.id);
                               },
                               child: Column(
                                 children: [
