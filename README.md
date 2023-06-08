@@ -30,7 +30,7 @@ firebase_storage: ^11.2.2 -->
 <tr>
 
 <td>
-  <img src="" alt="Home Screen Ui View Example" width="260"/>
+  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/82460ce6-0011-488e-9f13-4e431d16897b" alt="Home Screen Ui View Example" width="260"/>
 </td>
 
   
@@ -38,4 +38,3 @@ firebase_storage: ^11.2.2 -->
 
 
 </table>
-
