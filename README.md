@@ -14,14 +14,14 @@ firebase_storage: ^11.2.2 -->
 ##  Creating User Complete Firebase  -->
 
 
-## Tiktok Clone App Home Screen Ui Preview
+## Tiktok Clone AppVideo Showing  & Display Ui Preview
 
 
 <table>
   
   
 <tr>                    
-   <th>Home Screen  Ui View</th>
+   <th>Video Showing Display Ui View</th>
   
 </tr>  
   
@@ -30,7 +30,7 @@ firebase_storage: ^11.2.2 -->
 <tr>
 
 <td>
-  <img src="" alt="Home Screen Ui View Example" width="260"/>
+  <img src="https://github.com/mdsomad/Tiktok-Clone-App/assets/103892160/81e5f269-8f2c-4d53-85ac-48a3f3455d77" alt="Video Showing & Display Ui View Example" width="260"/>
 </td>
 
   
@@ -38,4 +38,5 @@ firebase_storage: ^11.2.2 -->
 
 
 </table>
+
 
