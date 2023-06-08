@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tiktok_clone/model/video_model.dart';
 import 'package:uuid/uuid.dart';
 import 'package:video_compress/video_compress.dart';
 
@@ -57,25 +58,52 @@ Future<File> _getThumb(String videoPath) async{
 
 
 //TODO: Create UploadVideo function 
-uploadVideo(String songName, String caption,String videoPath)async{
+uploadVideo({required String songName, required String caption, required String videoPath})async{
 
     try {
         
        //* Yah Login User ka uid find karta hai
        String uid = FirebaseAuth.instance.currentUser!.uid;
       
+      //* User Details Get
       DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(uid).get();
+
       //* videoID - uuid
       String id = uuid.v1();
       String videoUrl = await  _uploadVideoToStorage(id,videoPath);             //* <-- Call This _uploadVideoToStorage function
 
       String thumbnail  = await   _uploadVideoThumbToStorage(id , videoPath);   //* <-- Call This _uploadVideoThumbToStorage function
       //* IDHAR SE
+
+
+
+    VideoModel videoModel = VideoModel(
+        uid: uid, 
+        videoModelUrl: videoUrl,
+        username: (userDoc.data()! as Map<String , dynamic>)['name'], 
+        profilePic: (userDoc.data()! as Map<String , dynamic>)['profilePic'],
+        thumbnail: thumbnail,
+        caption: caption,
+        id: id, 
+        likes:[],
+        shareCount: 0, 
+        commentsCount: 0,
+        songName: songName, 
+    );
+      
+
+    await FirebaseFirestore.instance.collection("videos").doc(id).set(videoModel.toJson());
+    Get.snackbar("Video Uploaded Successfully", "Thank You Sharing Your Content");
+    debugPrint('Video Uploaded Successfully');
+    Get.back();
+      
+      
       
       
       
     } catch (e) {
       debugPrint(e.toString());
+       Get.snackbar("Error Uploading Video", e.toString());
     }
     
      

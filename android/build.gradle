@@ -15,6 +15,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }  //* <-- Added this line (Yah Add Nahin Karni Se video_compress package kaam nahin karta)
     }
 }
 
